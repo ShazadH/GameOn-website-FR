@@ -221,6 +221,13 @@ input {
     font-size: 15px;
 }
 
+.birthdateError {
+    display: none;
+    color: red;
+    font-size: 15px;
+    margin-bottom: 1rem;
+}
+
 .text-control {
     margin: 0;
     padding: 8px;

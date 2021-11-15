@@ -10,6 +10,9 @@ const lastName = document.getElementById("lastName");
 const lastNameError = document.querySelector(".lastNameError");
 const email = document.getElementById("email");
 const emailError = document.querySelector(".emailError");
+const birthdate = document.getElementById("birthdate");
+const birthdateError = document.querySelector(".birthdateError");
+const numberTournament = document.getElementById("quantity");
 
 //glogal var
 let formError = false;
@@ -29,6 +32,8 @@ submitBtn.addEventListener("click", (e) => {
     checkFirstNameValidity();
     checkLasrNameValidity();
     checkEmailValidity();
+    checkBirthdateValidity();
+    checkNumberTournament();
 
     if (formError === false) {
         // close modal + succes message
@@ -67,7 +72,6 @@ function checkFirstNameValidity() {
         formError = true;
         firstNameError.style.display = "inline";
         firstName.parentElement.dataset.errorVisible = "true";
-        console.log("first name", value);
     } else {
         firstNameError.style.display = "none";
         firstName.parentElement.dataset.errorVisible = "false";
@@ -83,7 +87,6 @@ function checkLasrNameValidity() {
         formError = true;
         lastNameError.style.display = "inline";
         lastName.parentElement.dataset.errorVisible = "true";
-        console.log("last name", value);
     } else {
         lastNameError.style.display = "none";
         lastName.parentElement.dataset.errorVisible = "false";
@@ -97,13 +100,31 @@ function checkEmailValidity() {
     const value = email.value;
 
     if (regex.test(value) === false) {
-        console.log("false", value);
         formError = true;
         emailError.style.display = "inline";
         email.parentElement.dataset.errorVisible = "true";
     } else {
-        console.log("true", value);
         emailError.style.display = "none";
         email.parentElement.dataset.errorVisible = "false";
     }
 }
+
+// Check birthdate
+
+function checkBirthdateValidity() {
+    if (birthdate.value.length === 0) {
+        formError = true;
+        birthdateError.style.display = "inline";
+        birthdate.parentElement.dataset.errorVisible = "true";
+    } else {
+        birthdateError.style.display = "none";
+        birthdate.parentElement.dataset.errorVisible = "false";
+    }
+}
+
+// Check number of tournament
+
+const checkNumberTournament = () => {
+    console.log("check");
+    console.log("tournament", !!numberTournament.value === true);
+};
