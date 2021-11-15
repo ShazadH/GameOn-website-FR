@@ -15,6 +15,11 @@ const birthdateError = document.querySelector(".birthdateError");
 const numberTournament = document.getElementById("quantity");
 const numberTournamentError = document.querySelector(".numberTournamentError");
 const locations = document.getElementsByClassName("checkbox-input");
+const radios = document.querySelectorAll('input[type="radio"]');
+const radioError = document.querySelector(".radioError");
+const radioColor = document.querySelectorAll(".checkbox-icon");
+const conditionsCheckbox = document.getElementById("checkbox1");
+const conditionsError = document.querySelector(".conditionsError");
 
 //glogal variable
 let formError = false;
@@ -37,6 +42,7 @@ submitBtn.addEventListener("click", (e) => {
     checkBirthdateValidity();
     checkNumberTournamentValidity();
     checkCitySelected();
+    checkConditonsAccepted();
 
     if (formError === false) {
         // close modal + succes message
@@ -144,9 +150,31 @@ const checkNumberTournamentValidity = () => {
 // Check city selected
 
 const checkCitySelected = () => {
-    // console.log(locations);
-    console.log(locations);
-    let radios = document.querySelectorAll('input[type="radio"]');
-    console.log(radios);
-    console.log(radios[0].checked);
+    let radioChecked = false;
+
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked === true) {
+            radioChecked = true;
+        }
+    }
+
+    if (radioChecked === false) {
+        formError = true;
+        radioError.style.display = "block";
+    } else {
+        radioError.style.display = "none";
+    }
+};
+
+// Check conditions accepted
+
+const checkConditonsAccepted = () => {
+    console.log(conditionsCheckbox.checked);
+    console.log(conditionsError);
+    if (conditionsCheckbox.checked === false) {
+        formError = true;
+        conditionsError.style.display = "inline";
+    } else {
+        conditionsError.style.display = "none";
+    }
 };
