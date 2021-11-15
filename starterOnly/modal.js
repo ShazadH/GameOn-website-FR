@@ -13,8 +13,10 @@ const emailError = document.querySelector(".emailError");
 const birthdate = document.getElementById("birthdate");
 const birthdateError = document.querySelector(".birthdateError");
 const numberTournament = document.getElementById("quantity");
+const numberTournamentError = document.querySelector(".numberTournamentError");
+const locations = document.getElementsByClassName("checkbox-input");
 
-//glogal var
+//glogal variable
 let formError = false;
 
 // launch modal event
@@ -33,7 +35,8 @@ submitBtn.addEventListener("click", (e) => {
     checkLasrNameValidity();
     checkEmailValidity();
     checkBirthdateValidity();
-    checkNumberTournament();
+    checkNumberTournamentValidity();
+    checkCitySelected();
 
     if (formError === false) {
         // close modal + succes message
@@ -124,7 +127,26 @@ function checkBirthdateValidity() {
 
 // Check number of tournament
 
-const checkNumberTournament = () => {
-    console.log("check");
-    console.log("tournament", !!numberTournament.value === true);
+const checkNumberTournamentValidity = () => {
+    const regex = new RegExp("^[0-9]{1,2}$");
+    const value = numberTournament.value;
+
+    if (!!value === false || regex.test(value) === false) {
+        formError = true;
+        numberTournamentError.style.display = "inline";
+        numberTournament.parentElement.dataset.errorVisible = "true";
+    } else {
+        numberTournamentError.style.display = "none";
+        numberTournament.parentElement.dataset.errorVisible = "false";
+    }
+};
+
+// Check city selected
+
+const checkCitySelected = () => {
+    // console.log(locations);
+    console.log(locations);
+    let radios = document.querySelectorAll('input[type="radio"]');
+    console.log(radios);
+    console.log(radios[0].checked);
 };
