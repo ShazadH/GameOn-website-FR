@@ -67,17 +67,17 @@ function editNav() {
     }
 }
 
-// launch modal form
+// Launch modal form
 function launchModal() {
     modalbg.style.display = "block";
 }
 
-// close modal form
+// Close modal form
 function closeModal() {
     modalbg.style.display = "none";
 }
 
-// check first name
+// Check first name
 function checkFirstNameValidity() {
     const regex = new RegExp("^[a-zA-Z]{2,15}$");
     const value = firstName.value;
@@ -92,7 +92,7 @@ function checkFirstNameValidity() {
     }
 }
 
-//check last name
+// Check last name
 function checkLasrNameValidity() {
     const regex = new RegExp("[a-zA-Z]{2,15}");
     const value = lastName.value;
@@ -107,7 +107,7 @@ function checkLasrNameValidity() {
     }
 }
 
-//Check email
+// Check email
 
 function checkEmailValidity() {
     const regex = new RegExp("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
@@ -138,7 +138,7 @@ function checkBirthdateValidity() {
 
 // Check number of tournament
 
-const checkNumberTournamentValidity = () => {
+function checkNumberTournamentValidity() {
     const regex = new RegExp("^[0-9]{1,2}$");
     const value = numberTournament.value;
 
@@ -150,11 +150,11 @@ const checkNumberTournamentValidity = () => {
         numberTournamentError.style.display = "none";
         numberTournament.parentElement.dataset.errorVisible = "false";
     }
-};
+}
 
 // Check city selected
 
-const checkCitySelected = () => {
+function checkCitySelected() {
     let radioChecked = false;
 
     for (let i = 0; i < radios.length; i++) {
@@ -169,17 +169,15 @@ const checkCitySelected = () => {
     } else {
         radioError.style.display = "none";
     }
-};
+}
 
 // Check conditions accepted
 
-const checkConditonsAccepted = () => {
-    console.log(conditionsCheckbox.checked);
-    console.log(conditionsError);
+function checkConditonsAccepted() {
     if (conditionsCheckbox.checked === false) {
         formError = true;
         conditionsError.style.display = "inline";
     } else {
         conditionsError.style.display = "none";
     }
-};
+}
