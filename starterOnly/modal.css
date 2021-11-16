@@ -249,6 +249,14 @@ input {
     margin-bottom: 1rem;
 }
 
+.succesMessage {
+    display: none;
+    justify-content: center;
+    background-color: #90eb8a;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
 .text-control {
     margin: 0;
     padding: 8px;

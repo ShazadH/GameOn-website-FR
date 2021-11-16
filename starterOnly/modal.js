@@ -20,6 +20,7 @@ const radioError = document.querySelector(".radioError");
 const radioColor = document.querySelectorAll(".checkbox-icon");
 const conditionsCheckbox = document.getElementById("checkbox1");
 const conditionsError = document.querySelector(".conditionsError");
+const succesMessage = document.querySelector(".succesMessage");
 
 //glogal variable
 let formError = false;
@@ -48,8 +49,8 @@ submitBtn.addEventListener("click", (e) => {
         // close modal + succes message
 
         closeModal();
+        succesMessage.style.display = "flex";
         document.reserve.reset();
-        //alert("Merci ! Votre réservation a été reçue.");
     }
 });
 
