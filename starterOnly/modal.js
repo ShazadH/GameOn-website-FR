@@ -46,6 +46,10 @@ submitBtn.addEventListener("click", (e) => {
 
     if (formError === false) {
         // close modal + succes message
+
+        closeModal();
+        document.reserve.reset();
+        //alert("Merci ! Votre réservation a été reçue.");
     }
 });
 
