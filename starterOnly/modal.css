@@ -250,7 +250,7 @@ input {
 }
 
 .succesMessage {
-    display: flex;
+    display: none;
     justify-content: center;
     background-color: #90eb8a;
     border-radius: 0.5rem;
